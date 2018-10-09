@@ -23,12 +23,33 @@ const europe = new Item({
     description: 'Travel to Europe'
 })
 
+const scuba = new Item({
+    completed: false,
+    description: 'Go scubadiving'
+})
+
+ const zipline = new Item ({
+     completed: false,
+     description: 'Ride a zip line'
+ })
+
+ const rafting = new Item ({
+     completed: false,
+     description: 'Go white water rafting'
+ })
+
 const tom = new User({
     name: 'Tom',
     bucketList: [skydive, family, europe]
 })
 
+const dave = new User({
+    name: 'Dave',
+    bucketList:[zipline, rafting, scuba]
+})
+
 User.remove({})
     .then(() => tom.save())
+    .then(() => dave.save())
     .then(() => console.log('Successful Save'))
     .then(() => mongoose.connection.close())
