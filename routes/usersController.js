@@ -25,5 +25,11 @@ router.put('/:id', async (req,res)=>{
     res.send(user)
 })
 
+//DELETE
+router.delete('/:id', async (req,res)=>{
+    await User.findByIdAndRemove(req.params.id)
+    res.sendStatus(200)
+})
+
 
 module.exports=router
