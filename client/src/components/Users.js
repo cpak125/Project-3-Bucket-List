@@ -9,9 +9,10 @@ export default class Users extends Component {
         showNewForm: false
     }
 
-    getAllUsers = async ()=> {
+    getAllUsers = async () => {
         const response = await axios.get('/api/users')
         this.setState({ users: response.data })
+        console.log(response.data)
     }
     componentDidMount = async () => {
         this.getAllUsers()
@@ -21,11 +22,17 @@ export default class Users extends Component {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
 
+    handleDelete = async (userId) => {
+        await axios.delete(`/api/users/${userId}`)
+        await this.getAllUsers()
+    }
+
     render() {
         const usersList = this.state.users.map((user, i) => {
             return (
                 <div key={i}>
-                    {user.name}
+                    <Link to={`/users/${user._id}`} key={i}>{user.name}</Link>
+                    <button onClick={this.handleDelete}>Delete</button>
                 </div>
             )
         })
@@ -37,9 +44,9 @@ export default class Users extends Component {
                     <button onClick={this.toggleShowNewForm}>Create New User</button>
                 </div>
                 {this.state.showNewForm ?
-                    <NewUserForm  
-                    toggleShowNewForm ={this.toggleShowNewForm}
-                    getAllUsers={this.getAllUsers}/> :
+                    <NewUserForm
+                        toggleShowNewForm={this.toggleShowNewForm}
+                        getAllUsers={this.getAllUsers} /> :
                     ''
                 }
 
