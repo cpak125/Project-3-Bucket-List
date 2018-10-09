@@ -1,12 +1,12 @@
 require('dotenv').config()
-const mongoose = require('mongose')
+const mongoose = require('mongoose')
 
 mongoose.connect(
     process.env.MONGODB_URI,
-    {useNewUrlParser: true}
+    { useNewUrlParser: true }
 )
 
-const {User, Item}= require('./model')
+const { User, Item } = require('./model')
 
 const skydive = new Item({
     completed: false,
@@ -25,10 +25,10 @@ const europe = new Item({
 
 const tom = new User({
     name: 'Tom',
-    bucketList:[skydive, family, europe]
+    bucketList: [skydive, family, europe]
 })
 
 User.remove({})
-  .then(() => elon.save())
-  .then(() => console.log('Successful Save'))
-  .then(() => mongoose.connection.close())
+    .then(() => tom.save())
+    .then(() => console.log('Successful Save'))
+    .then(() => mongoose.connection.close())
