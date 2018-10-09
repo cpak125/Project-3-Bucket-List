@@ -19,6 +19,11 @@ router.post('/', async (req,res)=>{
     res.send(user)
 })
 
+//UPDATE
+router.put('/:id', async (req,res)=>{
+    const user =await User.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    res.send(user)
+})
 
 
 module.exports=router
