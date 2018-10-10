@@ -6,7 +6,8 @@ import NewUserForm from './NewUserForm';
 export default class Users extends Component {
     state = {
         users: [],
-        showNewForm: false
+        showNewForm: false,
+        toggleEditForm: false,
     }
 
     getAllUsers = async () => {
@@ -32,6 +33,7 @@ export default class Users extends Component {
             return (
                 <div key={i}>
                     <Link to={`/users/${user._id}`} key={i}>{user.name}</Link>
+                    <button>Edit</button>
                     <button onClick={()=>this.handleDelete(user._id)}>Delete</button>
                 </div>
             )
