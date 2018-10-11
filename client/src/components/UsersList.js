@@ -24,24 +24,11 @@ export default class Users extends Component {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
 
-    // toggleEditForm = () => {
-    //     this.setState({ showEditForm: !this.state.showEditForm })
-    // }
-
-    // handleDelete = async (userId) => {
-    //     await axios.delete(`/api/users/${userId}`)
-    //     await this.getAllUsers()
-    // }
-
-
-
     render() {
         const usersList = this.state.users.map((user, i) => {
             return (
                 <div>
-                    {/* <EditUserForm name={user.name} /> */}
                     <Link to={`/users/${user._id}`} key={i}>{user.name}</Link>
-                    {/* <button onClick={() => this.handleDelete(user._id)}>Delete</button> */}
                 </div>
             )
         })
@@ -59,12 +46,6 @@ export default class Users extends Component {
                         getAllUsers={this.getAllUsers} /> :
                     ''
                 }
-                {/* {this.state.showEditForm ?
-                    <EditUserForm
-                        getAllUsers={this.getAllUsers}
-                        toggleEditForm={this.toggleEditForm} /> :
-                    ''
-                } */}
 
             </div>
         )

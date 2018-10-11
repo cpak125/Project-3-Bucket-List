@@ -61,20 +61,15 @@ export default class User extends Component {
         const editUserForm = (
             <form onSubmit={this.handleUpdate}>
                 <input type='text' name='name' onChange={this.handleChange} value={this.state.user.name} />
-                <input type='submit' value='Update User' />
+                <input type='submit' value='Update' />
             </form>
         )
 
-        // const user= (
-        //     <div>
-        //         <h1>{this.state.user.name}'s Bucket List</h1>
-        //     </div>
-        // )
         return (
             <div>
-                <h1>{this.state.user.name}'s Bucket List</h1>
+                <h1>{this.state.user.name}'s Bucket List <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
+                </h1>
                 {this.state.updatedUser ? editUserForm : ''}
-                <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
                 {bucketList}
                 <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>

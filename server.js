@@ -28,10 +28,10 @@ app.get('/', (req, res) => {
   })
   
 const usersController= require('./routes/usersController')
-// const itemsController= require('./routes/itemsController')
-
 app.use('/api/users', usersController)
-// app.use('/api/users/:userid/items', itemsController)
+
+const itemsController= require('./routes/itemsController')
+app.use('/api/users/:userid/items', itemsController)
 
 
 
