@@ -6,7 +6,7 @@ export default class Home extends Component {
         return (
             <div>
                 <h1>Welcome!</h1>
-                <Link to='/api/users'>Enter</Link>
+                <Link to='/users'>Enter</Link>
             </div>
         )
     }
