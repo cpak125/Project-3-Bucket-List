@@ -82,6 +82,7 @@ export default class User extends Component {
 
         return (
             <div>
+                <a href='/'>Home</a>
                 <h1>{this.state.user.name}'s Bucket List <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
                 <button onClick={() => this.handleDelete()}>Delete User</button>
 

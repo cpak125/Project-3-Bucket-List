@@ -7,16 +7,14 @@ import User from './components/User'
 class App extends Component {
   render() {
     return (
-      <div>
-        <a href='/'>Home</a>
-        <Router >
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/users' component={UsersList} />
-            <Route expact path='/users/:userId' component={User} />
-          </Switch>
-        </Router>
-      </div>
+      <Router >
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/users' component={UsersList} />
+          <Route expact path='/users/:userId' component={User} />
+        </Switch>
+      </Router>
+
     )
   }
 }

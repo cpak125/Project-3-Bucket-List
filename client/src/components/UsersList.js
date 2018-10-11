@@ -33,6 +33,7 @@ export default class Users extends Component {
         })
         return (
             <div>
+                <a href='/'>Home</a>
                 <h1>Users <button onClick={this.toggleShowNewForm}>Add New User</button>
                 </h1>
                 <div>
