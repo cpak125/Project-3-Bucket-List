@@ -53,9 +53,10 @@ export default class User extends Component {
         await this.getUser()
     }
 
-    handleDelete = async (itemId) => {
+    handleDeleteItem = async (itemId) => {
         const userId = this.props.match.params.userId
         await axios.delete(`/api/users/${userId}/items/${itemId}`)
+        await this.getUser()
     }
 
     render() {
@@ -65,9 +66,9 @@ export default class User extends Component {
         const bucketList = this.state.bucketList.map((item, i) => {
             return (
                 <div key={i}>
-                    <div >{item.description}</div>
-                    <div onClick={() => this.handleDelete(item._id)}>X</div>
-                 </div>
+                    <div >{item.description} <button onClick={() => this.handleDeleteItem(item._id)}>X</button>
+                    </div>
+                </div>
 
             )
         })
@@ -90,8 +91,9 @@ export default class User extends Component {
                     getUser={this.getUser}
                 />
 
-
+                <div>
                 {bucketList}
+                </div>
 
                 <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
