@@ -24,8 +24,8 @@ export default class User extends Component {
         this.getUser()
     }
 
-    handleDelete = async (userId) => {
-        // const userId = this.props.match.params.userId
+    handleDelete = async () => {
+        const userId = this.props.match.params.userId
         await axios.delete(`/api/users/${userId}`)
         this.setState({ redirect: true })
     }
@@ -74,9 +74,9 @@ export default class User extends Component {
             <div>
                 <h1>{this.state.user.name}'s Bucket List</h1>
                 {this.state.updatedUser ? editUserForm : ''}
-                <button onClick={()=> this.toggleUpdateUser()}>Edit User</button>
+                <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
                 {bucketList}
-                <button onClick={() => this.handleDelete}>Delete User</button>
+                <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
         )
     }
