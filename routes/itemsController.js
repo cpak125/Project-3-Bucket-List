@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     User.findById(req.params.userId)
         .then(user => {
-            return user.update({ $pull: { items: { _id: req.params.id } } })
+            return user.update({ $pull: { bucketList: { _id: req.params.id } } })
         })
         .then(user => {
             res.send(user)

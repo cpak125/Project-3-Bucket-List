@@ -53,16 +53,21 @@ export default class User extends Component {
         await this.getUser()
     }
 
+    handleDelete = async (itemId) => {
+        const userId = this.props.match.params.userId
+        await axios.delete(`/api/users/${userId}/items/${itemId}`)
+    }
 
     render() {
         if (this.state.redirect) {
             return <Redirect to='/users' />
         }
-        const bucketList = this.state.bucketList.map((bucketList, i) => {
+        const bucketList = this.state.bucketList.map((item, i) => {
             return (
                 <div key={i}>
-                    <div >{bucketList.description}</div>
-                </div>
+                    <div >{item.description}</div>
+                    <div onClick={() => this.handleDelete(item._id)}>X</div>
+                 </div>
 
             )
         })
