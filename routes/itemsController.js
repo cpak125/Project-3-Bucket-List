@@ -1,4 +1,5 @@
-const router = require('express').Router({ mergeParams: true })
+const express = require('express')
+const router = express.Router({ mergeParams: true })
 const { User, Item } = require('../db/model')
 
 //SHOW ALL
@@ -6,15 +7,15 @@ router.get('/', async (req, res) => {
     const user = await User.findById(req.params.userId)
     const items = user.bucketList
     res.send(items)
-  })
+})
 
-  //CREATE
-  router.post('/', (req, res) => {
-    const newIdea = new Idea()
+//CREATE
+router.post('/', (req, res) => {
+    const newItem = new Item(req.body)
 
     User.findById(req.params.userId)
         .then((user) => {
-            user.ideas.push(newIdea)
+            user.bucketList.push(newItem)
             return user.save()
         })
         .then((user) => {
@@ -26,8 +27,7 @@ router.get('/', async (req, res) => {
 router.delete('/:id', (req, res) => {
     User.findById(req.params.userId)
         .then(user => {
-            //HELP
-            return user.update({ $pull: { ideas: { _id: req.params.id } } })
+            return user.update({ $pull: { items: { _id: req.params.id } } })
         })
         .then(user => {
             res.send(user)
@@ -36,4 +36,4 @@ router.delete('/:id', (req, res) => {
 
 
 
-  module.exports = router
+module.exports = router

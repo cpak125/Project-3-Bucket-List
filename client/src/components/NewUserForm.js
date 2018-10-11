@@ -30,7 +30,7 @@ export default class NewUserForm extends Component {
                 <div> Name:
                     <input onChange={this.handleChange} type="text" name="name" value={this.state.name} />
                 </div>
-                <button>Submit</button>
+                <input type='submit' value='Add' />
             </form>
         )
     }

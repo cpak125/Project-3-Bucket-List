@@ -28,7 +28,7 @@ const usersController= require('./routes/usersController')
 app.use('/api/users', usersController)
 
 const itemsController= require('./routes/itemsController')
-app.use('/api/users/:userid/items', itemsController)
+app.use('/api/users/:userId/items', itemsController)
 
 app.get('/*', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')

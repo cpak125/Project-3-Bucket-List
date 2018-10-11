@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import NewItemForm from './NewItemForm';
 
 
 export default class User extends Component {
@@ -8,7 +9,7 @@ export default class User extends Component {
         user: {},
         bucketList: [],
         updateUser: false,
-        redirect: false
+        redirect: false,
     }
 
     getUser = async () => {
@@ -46,6 +47,13 @@ export default class User extends Component {
         this.setState({ updatedUser: !this.state.updateUser })
     }
 
+    addNewItem = async (newItem) => {
+        const userId = this.props.match.params.userId
+        await axios.post(`/api/users/${userId}/items`, newItem)
+        await this.getUser()
+    }
+
+
     render() {
         if (this.state.redirect) {
             return <Redirect to='/users' />
@@ -69,8 +77,17 @@ export default class User extends Component {
             <div>
                 <h1>{this.state.user.name}'s Bucket List <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
                 </h1>
+
                 {this.state.updatedUser ? editUserForm : ''}
+
+                <NewItemForm
+                    addNewItem={this.addNewItem}
+                    getUser={this.getUser}
+                />
+
+
                 {bucketList}
+
                 <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
         )
