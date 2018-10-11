@@ -6,8 +6,7 @@ import NewUserForm from './NewUserForm';
 export default class Users extends Component {
     state = {
         users: [],
-        showNewForm: false,
-        showEditForm: false,
+        showNewForm: false
     }
 
     getAllUsers = async () => {
