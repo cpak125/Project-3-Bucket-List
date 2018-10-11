@@ -30,7 +30,7 @@ app.use('/api/users', usersController)
 const itemsController= require('./routes/itemsController')
 app.use('/api/users/:userid/items', itemsController)
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 })
 
