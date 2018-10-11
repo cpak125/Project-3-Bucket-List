@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import NewUserForm from './NewUserForm';
+import styled from 'styled-components'
+
+
+const StyledUsersListPage = styled.div`
+background-color: #247BA0;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+height: 100vh;
+`
+
 
 export default class Users extends Component {
     state = {
@@ -33,19 +42,21 @@ export default class Users extends Component {
         })
         return (
             <div>
-                <a href='/'>Home</a>
-                <h1>Users <button onClick={this.toggleShowNewForm}>Add New User</button>
-                </h1>
-                <div>
-                </div>
-                {usersList}
+                <StyledUsersListPage>
+                    <a href='/'>Home</a>
+                    <h1>Users <button onClick={this.toggleShowNewForm}>Add New User</button>
+                    </h1>
+                    <div>
+                    </div>
+                    {usersList}
 
-                {this.state.showNewForm ?
-                    <NewUserForm
-                        toggleShowNewForm={this.toggleShowNewForm}
-                        getAllUsers={this.getAllUsers} /> :
-                    ''
-                }
+                    {this.state.showNewForm ?
+                        <NewUserForm
+                            toggleShowNewForm={this.toggleShowNewForm}
+                            getAllUsers={this.getAllUsers} /> :
+                        ''
+                    }
+                </StyledUsersListPage>
 
             </div>
         )
