@@ -14,13 +14,17 @@ export default class NewItemForm extends Component {
         this.setState({ newItem })
     }
 
-   
+
 
     handleSubmit = (event) => {
         event.preventDefault()
         const newItem = { ...this.state.newItem }
         this.props.addNewItem(newItem)
-        // this.setState({newUser:''})
+        this.setState({
+            newItem: {
+                description: ''
+            }
+        })
     }
 
 

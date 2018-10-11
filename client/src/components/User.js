@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import NewItemForm from './NewItemForm';
 
 
@@ -66,8 +66,9 @@ export default class User extends Component {
         const bucketList = this.state.bucketList.map((item, i) => {
             return (
                 <div key={i}>
-                    <div >{item.description} <button onClick={() => this.handleDeleteItem(item._id)}>X</button>
-                    </div>
+                    <input type='checkbox'></input>{item.description}
+                    <button onClick={() => this.handleDeleteItem(item._id)}>X</button>
+                    
                 </div>
 
             )
@@ -82,6 +83,8 @@ export default class User extends Component {
         return (
             <div>
                 <h1>{this.state.user.name}'s Bucket List <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
+                <button onClick={() => this.handleDelete()}>Delete User</button>
+
                 </h1>
 
                 {this.state.updatedUser ? editUserForm : ''}
@@ -94,8 +97,8 @@ export default class User extends Component {
                 <div>
                 {bucketList}
                 </div>
+                <Link to='/users' >Back to All Users</Link>
 
-                <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
         )
     }
