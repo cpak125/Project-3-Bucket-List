@@ -68,7 +68,7 @@ export default class User extends Component {
                 <div key={i}>
                     <input type='checkbox'></input>{item.description}
                     <button onClick={() => this.handleDeleteItem(item._id)}>X</button>
-                    
+
                 </div>
 
             )
@@ -82,9 +82,12 @@ export default class User extends Component {
 
         return (
             <div>
-                <a href='/'>Home</a>
+                <nav>
+                    <a href='/'><i className='fa fa-home'></i></a>
+                    <a href='/users'><i className='fa fa-users' ></i></a>
+                </nav>
                 <h1>{this.state.user.name}'s Bucket List <button onClick={() => this.toggleUpdateUser()}>Edit User</button>
-                <button onClick={() => this.handleDelete()}>Delete User</button>
+                    <button onClick={() => this.handleDelete()}>Delete User</button>
 
                 </h1>
 
@@ -96,10 +99,8 @@ export default class User extends Component {
                 />
 
                 <div>
-                {bucketList}
+                    {bucketList}
                 </div>
-                <Link to='/users' >Back to All Users</Link>
-
             </div>
         )
     }

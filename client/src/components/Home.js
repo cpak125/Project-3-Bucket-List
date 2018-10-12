@@ -12,6 +12,8 @@ background-attachment: fixed;
 text-align: center;
 p{
     vertical-align: center;
+    margin:0 auto;
+    padding:0;
 
 
 }

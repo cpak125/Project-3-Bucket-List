@@ -6,9 +6,22 @@ import styled from 'styled-components'
 
 
 const StyledUsersListPage = styled.div`
-background-color: #247BA0;
+background-color: #ffe066;
 background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 height: 100vh;
+h1{
+    text-align:center;
+    font-family: 'Reenie Beanie', cursive;
+    font-size:80px;
+    /* color; */
+}
+span, .fa-home{
+    font-size: 30px;
+    color:#247ba0;
+}
+span:hover, .fa-home:hover{
+    color: #70c1b3;
+}
 `
 
 
@@ -35,19 +48,18 @@ export default class Users extends Component {
     render() {
         const usersList = this.state.users.map((user, i) => {
             return (
-                <div>
-                    <Link to={`/users/${user._id}`} key={i}>{user.name}</Link>
+                <div key={i}>
+                    <Link to={`/users/${user._id}`}>{user.name}</Link>
                 </div>
             )
         })
         return (
             <div>
                 <StyledUsersListPage>
-                    <a href='/'>Home</a>
-                    <h1>Users <button onClick={this.toggleShowNewForm}>Add New User</button>
+                    <a href='/'><i className='fa fa-home'></i></a>
+                    <h1>Users <span onClick={this.toggleShowNewForm}><i className='fa fa-plus-square'></i></span>
                     </h1>
-                    <div>
-                    </div>
+                   
                     {usersList}
 
                     {this.state.showNewForm ?
