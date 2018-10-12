@@ -148,7 +148,7 @@ export default class User extends Component {
                     <div>
                         <input type='checkbox'></input>
                         <span className='bucket-list'>{item.description}</span>
-                        <button className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
+                        <button title="Remove item from List" className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
                     </div>
                 </StyledBucketList>
             )
@@ -166,10 +166,10 @@ export default class User extends Component {
         return (
             <StyledUserPage>
                 <nav>
-                    <a href='/'><i className='fa fa-home'></i></a>
-                    <a href='/users'><i className='fa fa-users' ></i></a>
-                    <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit'></i> </span>
-                    <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times'></i></span>
+                    <a href='/'><i title='Home' className='fa fa-home'></i></a>
+                    <a href='/users'><i className='fa fa-users' title='See All Users' ></i></a>
+                    <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit' title='Edit User'></i> </span>
+                    <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times' title='Remove User'></i></span>
                 </nav>
 
                 <h1>{this.state.user.name}'s Bucket List</h1>

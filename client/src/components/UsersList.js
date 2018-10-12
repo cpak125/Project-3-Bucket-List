@@ -65,8 +65,8 @@ export default class Users extends Component {
         })
         return (
             <StyledUsersListPage>
-                <a href='/'><i className='fa fa-home'></i></a>
-                <h1>Users <span onClick={this.toggleShowNewForm}><i className='fa fa-plus-square'></i></span>
+                <a href='/'><i  title='Home' className='fa fa-home'></i></a>
+                <h1>Users <span onClick={this.toggleShowNewForm}><i title='Add New User' className='fa fa-plus-square'></i></span>
                 </h1>
 
                 {this.state.showNewForm ?
