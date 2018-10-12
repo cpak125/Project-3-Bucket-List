@@ -81,7 +81,6 @@ export default class Users extends Component {
                     ''
                 }
 
-
                 {usersList}
 
             </StyledUsersListPage>

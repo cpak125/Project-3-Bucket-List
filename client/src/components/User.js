@@ -70,7 +70,24 @@ input{
 .update:hover{
     background-color:#50514f;
 }
+`
 
+const StyledBucketList=styled.div`
+display:flex;
+justify-content:space-around;
+position:relative;
+ div{
+    font-size:45px;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight:bold;
+    color:#f25f5c;
+}
+input[type=checkbox]{
+    transform: scale(2.0);
+}
+input[type=checkbox]:checked{
+    text-decoration: line-through;
+}
 `
 export default class User extends Component {
     state = {
@@ -133,10 +150,11 @@ export default class User extends Component {
         }
         const bucketList = this.state.bucketList.map((item, i) => {
             return (
-                <div key={i}>
-                    <input type='checkbox'></input>{item.description}
+                <StyledBucketList key={i}>
+                    <input type='checkbox'></input>
+                    <div>{item.description}</div>
                     <button className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
-                </div>
+                </StyledBucketList>
 
             )
         })
@@ -169,7 +187,7 @@ export default class User extends Component {
                     />
                 </StyledEditUserForm>
 
-                <div>
+                <div className='bucket-list'>
                     {bucketList}
                 </div>
             </StyledUserPage>
