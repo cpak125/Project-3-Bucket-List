@@ -25,8 +25,8 @@ a:hover{
 }
 h1{
     text-align:center;
-    font-size:80px;
-    margin:30px 0 30px 0;
+    font-size:60px;
+    margin:20px 0 20px 0;
     color:#f25f5c;
 }
 button{
@@ -34,7 +34,7 @@ button{
     color:#247ba0;
     font-weight:bold;
     font-family: 'Reenie Beanie', cursive;
-    font-size:30px;
+    font-size:25px;
 }
 button:hover{
     background-color:#50514f;
@@ -45,7 +45,7 @@ background-color:#f25f5c;
 .edit-delete{
 display:flex;
 justify-content:space-around;
-padding-bottom:20px;
+padding-bottom:10px;
 }
 `
 
@@ -56,10 +56,10 @@ font-size:35px;
 font-weight:bold;
 color:#f25f5c;
 margin-top: 20px;
-margin-bottom:50px;
+margin-bottom:20px;
 input{
     font-family: 'Reenie Beanie', cursive;
-    font-size:30px;
+    font-size:25px;
     color:#247ba0;
     font-weight:bold;
     background-color:#70c1b3;
@@ -72,21 +72,22 @@ input{
 }
 `
 
-const StyledBucketList=styled.div`
+const StyledBucketList = styled.div`
 display:flex;
 justify-content:space-around;
 position:relative;
+
  div{
-    font-size:45px;
+    font-size:40px;
     font-family: 'Reenie Beanie', cursive;
     font-weight:bold;
     color:#f25f5c;
+
 }
 input[type=checkbox]{
-    transform: scale(2.0);
-}
-input[type=checkbox]:checked{
-    text-decoration: line-through;
+    transform: scale(1.75);
+   color:green;
+
 }
 `
 export default class User extends Component {
@@ -175,9 +176,9 @@ export default class User extends Component {
                 </nav>
                 <h1>{this.state.user.name}'s Bucket List</h1>
                 <div className='edit-delete'>
-                    <span>
-                        <button onClick={() => this.toggleUpdateUser()}>Edit User</button> {this.state.updatedUser ? editUserForm : ''}
-                    </span>
+
+                    <button onClick={() => this.toggleUpdateUser()}>Edit User</button> {this.state.updatedUser ? editUserForm : ''}
+
                     <button className='delete' onClick={() => this.handleDelete()}>Delete User</button>
                 </div>
                 <StyledEditUserForm>
