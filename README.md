@@ -27,7 +27,7 @@ This app consists of two models: User and Items. The User model has full CRUD ca
 ![ERD](https://github.com/cpak125/Project-3-Bucket-List/blob/master/images/Bucket-List%20ERD%20(1).jpeg)
 
 ## Wireframe
-![Wireframe](https://github.com/cpak125/Project-3-Bucket-List/blob/master/images/Bucket-List.jpg)
+![Wireframe](https://github.com/cpak125/Project-3-Bucket-List/blob/master/images/Bucket-List%20-Wireframe.jpg)
 
 ## Future Development
 1. Edit/Update routes for other model
