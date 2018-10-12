@@ -13,15 +13,31 @@ h1{
     text-align:center;
     font-family: 'Reenie Beanie', cursive;
     font-size:80px;
-    /* color; */
+    color:#f25f5c;
+    margin:5px 0 30px 0;
 }
 span, .fa-home{
     font-size: 30px;
     color:#247ba0;
 }
-span:hover, .fa-home:hover{
+span:hover, .fa-home:hover, a:hover{
     color: #70c1b3;
 }
+`
+const StyledUserList = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+a{
+    padding:7px;
+    font-size:45px;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight:bold;
+    color:#247ba0;
+    text-align:center;
+}
+
 `
 
 
@@ -48,29 +64,30 @@ export default class Users extends Component {
     render() {
         const usersList = this.state.users.map((user, i) => {
             return (
-                <div key={i}>
-                    <Link to={`/users/${user._id}`}>{user.name}</Link>
-                </div>
+                <StyledUserList key={i}>
+                    <a href={`/users/${user._id}`}>{user.name}</a>
+                </StyledUserList>
             )
         })
         return (
-            <div>
-                <StyledUsersListPage>
-                    <a href='/'><i className='fa fa-home'></i></a>
-                    <h1>Users <span onClick={this.toggleShowNewForm}><i className='fa fa-plus-square'></i></span>
-                    </h1>
-                   
-                    {usersList}
 
-                    {this.state.showNewForm ?
-                        <NewUserForm
-                            toggleShowNewForm={this.toggleShowNewForm}
-                            getAllUsers={this.getAllUsers} /> :
-                        ''
-                    }
-                </StyledUsersListPage>
+            <StyledUsersListPage>
+                <a href='/'><i className='fa fa-home'></i></a>
+                <h1>Users <span onClick={this.toggleShowNewForm}><i className='fa fa-plus-square'></i></span>
+                </h1>
+                {this.state.showNewForm ?
+                    <NewUserForm
+                        toggleShowNewForm={this.toggleShowNewForm}
+                        getAllUsers={this.getAllUsers} /> :
+                    ''
+                }
 
-            </div>
+
+                {usersList}
+
+            </StyledUsersListPage>
+
+
         )
     }
 }
