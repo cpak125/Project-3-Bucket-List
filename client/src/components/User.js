@@ -82,6 +82,9 @@ div:hover{
 input[type=checkbox]{
     transform: scale(1.5);
 }
+input[type=checkbox]:checked + span{
+    text-decoration:line-through;
+}
 `
 export default class User extends Component {
     state = {
