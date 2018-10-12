@@ -33,7 +33,7 @@ export default class NewItemForm extends Component {
 
             <form onSubmit={this.handleSubmit} >
                 <input onChange={this.handleChange} type="text" name="description" value={this.state.newItem.description} placeholder='Description' />
-                <input type='submit' value='Add to Bucket List' />
+                <input className='update' type='submit' value='Add to Bucket List' />
             </form>
 
         )
