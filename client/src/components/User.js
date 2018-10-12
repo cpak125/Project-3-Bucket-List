@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import NewItemForm from './NewItemForm';
 import styled from 'styled-components'
 
-
 const StyledUserPage = styled.div`
 background-color: #ffe066;
 background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
@@ -62,7 +61,6 @@ input{
     background-color:#50514f;
 }
 `
-
 const StyledBucketList = styled.div`
  div{
     display:flex;
@@ -77,7 +75,6 @@ const StyledBucketList = styled.div`
 }
 .bucket-list{
     color:#f25f5c;
-
 }
 div:hover{
     background-color:#50514f;
@@ -119,7 +116,7 @@ export default class User extends Component {
         this.setState({ user: updatedUser })
     }
 
-    handleUpdate = async (event) => {
+    handleUpdate = async () => {
         const userId = this.props.match.params.userId
         const updatedUser = this.state.user
         await axios.put(`/api/users/${userId}`, updatedUser)
@@ -153,15 +150,14 @@ export default class User extends Component {
                         <span className='bucket-list'>{item.description}</span>
                         <button className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
                     </div>
-
                 </StyledBucketList>
-
             )
         })
+
         const editUserForm = (
             <StyledEditUserForm>
                 <form onSubmit={this.handleUpdate}>
-                    <input type='text' name='name' onChange={this.handleChange} value={this.state.user.name} />
+                    Name:<input type='text' name='name' onChange={this.handleChange} value={this.state.user.name} />
                     <input className='update' type='submit' value='Update' />
                 </form>
             </StyledEditUserForm>
@@ -173,26 +169,19 @@ export default class User extends Component {
                     <a href='/'><i className='fa fa-home'></i></a>
                     <a href='/users'><i className='fa fa-users' ></i></a>
                     <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit'></i> </span>
-                    {this.state.updatedUser ? editUserForm : ''}
                     <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times'></i></span>
                 </nav>
 
                 <h1>{this.state.user.name}'s Bucket List</h1>
-                {/* <div className='edit-delete'>
-                    <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit'></i> </span> 
-                    {this.state.updatedUser ? editUserForm : ''}
-                    <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times'></i></span>
-                </div> */}
+                {this.state.updatedUser ? editUserForm : ''}
+
                 <StyledEditUserForm>
                     <NewItemForm
                         addNewItem={this.addNewItem}
-                        getUser={this.getUser}
-                    />
+                        getUser={this.getUser} />
                 </StyledEditUserForm>
 
-                <div className='bucket-list'>
-                    {bucketList}
-                </div>
+                {bucketList}
             </StyledUserPage>
         )
     }

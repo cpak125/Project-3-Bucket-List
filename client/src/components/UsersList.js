@@ -3,7 +3,6 @@ import axios from 'axios'
 import NewUserForm from './NewUserForm';
 import styled from 'styled-components'
 
-
 const StyledUsersListPage = styled.div`
 background-color: #ffe066;
 background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
@@ -27,7 +26,6 @@ const StyledUserList = styled.div`
 display:flex;
 flex-direction:column;
 justify-content:center;
-
 a{
     padding:7px;
     font-size:45px;
@@ -36,9 +34,7 @@ a{
     color:#247ba0;
     text-align:center;
 }
-
 `
-
 
 export default class Users extends Component {
     state = {
@@ -50,7 +46,6 @@ export default class Users extends Component {
         const response = await axios.get('/api/users')
         this.setState({ users: response.data })
     }
-
 
     componentDidMount = async () => {
         this.getAllUsers()
@@ -69,23 +64,19 @@ export default class Users extends Component {
             )
         })
         return (
-
             <StyledUsersListPage>
                 <a href='/'><i className='fa fa-home'></i></a>
                 <h1>Users <span onClick={this.toggleShowNewForm}><i className='fa fa-plus-square'></i></span>
                 </h1>
+
                 {this.state.showNewForm ?
                     <NewUserForm
                         toggleShowNewForm={this.toggleShowNewForm}
-                        getAllUsers={this.getAllUsers} /> :
-                    ''
+                        getAllUsers={this.getAllUsers} /> : ''
                 }
 
                 {usersList}
-
             </StyledUsersListPage>
-
-
         )
     }
 }

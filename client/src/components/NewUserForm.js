@@ -23,8 +23,6 @@ input{
 }
 `
 
-
-
 export default class NewUserForm extends Component {
     state = {
         name: ''

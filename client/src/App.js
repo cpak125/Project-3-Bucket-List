@@ -14,7 +14,6 @@ class App extends Component {
           <Route expact path='/users/:userId' component={User} />
         </Switch>
       </Router>
-
     )
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 export default class NewItemForm extends Component {
     state = {
         newItem: {
@@ -14,8 +13,6 @@ export default class NewItemForm extends Component {
         this.setState({ newItem })
     }
 
-
-
     handleSubmit = (event) => {
         event.preventDefault()
         const newItem = { ...this.state.newItem }
@@ -27,15 +24,12 @@ export default class NewItemForm extends Component {
         })
     }
 
-
     render() {
         return (
-
             <form onSubmit={this.handleSubmit} >
                 <input onChange={this.handleChange} type="text" name="description" value={this.state.newItem.description} placeholder='Description' />
                 <input className='update' type='submit' value='Add to Bucket List' />
             </form>
-
         )
     }
 }
