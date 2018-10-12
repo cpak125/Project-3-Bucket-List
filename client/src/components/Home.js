@@ -17,17 +17,20 @@ align-items: center;
 
 p{
     width:60%;
-    font-size:30px;
+    font-size:35px;
     font-family: 'Reenie Beanie', cursive;
     font-weight:bold;
     margin:0 auto;
     position:relative;
+    background-color: rgba(250,250,250, .5);
 }
+
 h1{
     font-size:60px;
     font-family: 'Reenie Beanie', cursive;
     font-weight:bold;
     margin:20px 0 30px 0;
+    color:#f25f5c;
 }
 button, a{
     margin-top: 10px;
