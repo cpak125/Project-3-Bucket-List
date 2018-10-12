@@ -17,6 +17,8 @@ h1{
 span, .fa-home{
     font-size: 30px;
     color:#247ba0;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 span:hover, .fa-home:hover, a:hover{
     color: #70c1b3;
@@ -33,6 +35,8 @@ a{
     font-weight:bold;
     color:#247ba0;
     text-align:center;
+}
+.fa-home{
 }
 `
 
@@ -65,7 +69,7 @@ export default class Users extends Component {
         })
         return (
             <StyledUsersListPage>
-                <a href='/'><i  title='Home' className='fa fa-home'></i></a>
+                <a  className='home' href='/'><i  title='Home' className='fa fa-home'></i></a>
                 <h1>Users <span onClick={this.toggleShowNewForm}><i title='Add New User' className='fa fa-plus-square'></i></span>
                 </h1>
 
