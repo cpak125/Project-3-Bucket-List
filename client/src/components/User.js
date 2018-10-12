@@ -85,7 +85,7 @@ position:relative;
 
 }
 input[type=checkbox]{
-    transform: scale(1.75);
+    transform: scale(1.5);
    color:green;
 
 }

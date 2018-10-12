@@ -10,12 +10,34 @@ background-size: cover;
 position: relative;
 background-attachment: fixed;
 text-align: center;
+display:flex;
+flex-direction:column;
+justify-content:top;
+align-items: center;
+
 p{
-    vertical-align: center;
+    width:60%;
+    font-size:30px;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight:bold;
     margin:0 auto;
-    padding:0;
-
-
+    position:relative;
+}
+h1{
+    font-size:60px;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight:bold;
+    margin:20px 0 30px 0;
+}
+button, a{
+    margin-top: 10px;
+    font-size:20px;
+    color:black;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight:bold;
+}
+button:hover{
+    background-color:gray;
 }
 
 `
@@ -24,8 +46,9 @@ export default class Home extends Component {
     render() {
         return (
             <StyledHomePage>
-                <p>Welcome!</p>
-                <a href='/users'>Enter</a>
+                <h1>Bucket ListR</h1>
+                <p>Welcome to Bucket ListR! This app allows users to create their own personal Bucket List. Users can also view other user's Bucket List. Click "Enter" to get started.</p>
+                <button><a href='/users'>Enter</a></button>
             </StyledHomePage>
 
 
