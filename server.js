@@ -10,7 +10,7 @@ const connection = mongoose.connection
 connection.on('connected', () => {
   console.log('Mongoose Connected Successfully')
 })
-// If the connection throws an error
+
 connection.on('error', (err) => {
   console.log('Mongoose default connection error: ' + err)
 })
@@ -23,16 +23,14 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/client/build/'))
 
-  
-const usersController= require('./routes/usersController')
+const usersController = require('./routes/usersController')
 app.use('/api/users', usersController)
 
-const itemsController= require('./routes/itemsController')
+const itemsController = require('./routes/itemsController')
 app.use('/api/users/:userId/items', itemsController)
 
 app.get('/*', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 })
-
 
 module.exports = app

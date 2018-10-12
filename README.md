@@ -21,7 +21,7 @@ This app consists of two models: User and Items. The User model has full CRUD ca
 6. Express.js
 7. MongoDB
 8. Mongoose
-8. React
+8. React.js
 
 ## ERD
 ![ERD](https://github.com/cpak125/Project-3-Bucket-List/blob/master/images/Bucket-List%20ERD%20(1).jpeg)

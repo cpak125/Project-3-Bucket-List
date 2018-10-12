@@ -17,10 +17,10 @@ nav{
     text-align:center;
     font-size:30px;
 }
-a{
+a, span{
     color:#247ba0;
 }
-a:hover{
+a:hover, span:hover{
     color: #70c1b3;
 }
 h1{
@@ -36,19 +36,10 @@ button{
     font-family: 'Reenie Beanie', cursive;
     font-size:25px;
 }
-button:hover{
-    background-color:#50514f;
-}
 .delete:hover{
 background-color:#f25f5c;
 }
-.edit-delete{
-display:flex;
-justify-content:space-around;
-padding-bottom:10px;
-}
 `
-
 const StyledEditUserForm = styled.div`
 text-align:center;
 font-family: 'Reenie Beanie', cursive;
@@ -73,21 +64,26 @@ input{
 `
 
 const StyledBucketList = styled.div`
-display:flex;
-justify-content:space-around;
-position:relative;
-
  div{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
     font-size:40px;
     font-family: 'Reenie Beanie', cursive;
     font-weight:bold;
     color:#f25f5c;
+    margin-right:15%;
+    margin-left:15%;
+}
+.bucket-list{
+    color:#f25f5c;
 
+}
+div:hover{
+    background-color:#50514f;
 }
 input[type=checkbox]{
     transform: scale(1.5);
-   color:green;
-
 }
 `
 export default class User extends Component {
@@ -152,9 +148,12 @@ export default class User extends Component {
         const bucketList = this.state.bucketList.map((item, i) => {
             return (
                 <StyledBucketList key={i}>
-                    <input type='checkbox'></input>
-                    <div>{item.description}</div>
-                    <button className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
+                    <div>
+                        <input type='checkbox'></input>
+                        <span className='bucket-list'>{item.description}</span>
+                        <button className='delete' onClick={() => this.handleDeleteItem(item._id)}>X</button>
+                    </div>
+
                 </StyledBucketList>
 
             )
@@ -173,14 +172,17 @@ export default class User extends Component {
                 <nav>
                     <a href='/'><i className='fa fa-home'></i></a>
                     <a href='/users'><i className='fa fa-users' ></i></a>
+                    <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit'></i> </span>
+                    {this.state.updatedUser ? editUserForm : ''}
+                    <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times'></i></span>
                 </nav>
+
                 <h1>{this.state.user.name}'s Bucket List</h1>
-                <div className='edit-delete'>
-
-                    <button onClick={() => this.toggleUpdateUser()}>Edit User</button> {this.state.updatedUser ? editUserForm : ''}
-
-                    <button className='delete' onClick={() => this.handleDelete()}>Delete User</button>
-                </div>
+                {/* <div className='edit-delete'>
+                    <span onClick={() => this.toggleUpdateUser()}><i className='fa fa-user-edit'></i> </span> 
+                    {this.state.updatedUser ? editUserForm : ''}
+                    <span className='delete' onClick={() => this.handleDelete()}><i className='fa fa-user-times'></i></span>
+                </div> */}
                 <StyledEditUserForm>
                     <NewItemForm
                         addNewItem={this.addNewItem}

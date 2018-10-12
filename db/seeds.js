@@ -28,15 +28,15 @@ const scuba = new Item({
     description: 'Go scubadiving'
 })
 
- const zipline = new Item ({
-     completed: false,
-     description: 'Ride a zip line'
- })
+const zipline = new Item({
+    completed: false,
+    description: 'Ride a zip line'
+})
 
- const rafting = new Item ({
-     completed: false,
-     description: 'Go white water rafting'
- })
+const rafting = new Item({
+    completed: false,
+    description: 'Go white water rafting'
+})
 
 const tom = new User({
     name: 'Tom',
@@ -45,7 +45,7 @@ const tom = new User({
 
 const dave = new User({
     name: 'Dave',
-    bucketList:[zipline, rafting, scuba]
+    bucketList: [zipline, rafting, scuba]
 })
 
 User.remove({})
