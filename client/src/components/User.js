@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import NewItemForm from './NewItemForm';
 import styled from 'styled-components'
+import EditUserForm from './EditUserForm';
 
 const StyledUserPage = styled.div`
 background-color: #ffe066;
@@ -96,7 +97,7 @@ export default class User extends Component {
 
     getUser = async () => {
         const userId = this.props.match.params.userId
-        const response = await axios(`/api/users/${userId}`)
+        const response = await axios.get(`/api/users/${userId}`)
         this.setState({
             user: response.data,
             bucketList: response.data.bucketList
@@ -126,7 +127,7 @@ export default class User extends Component {
     }
 
     toggleUpdateUser = () => {
-        this.setState({ updatedUser: !this.state.updateUser })
+        this.setState({ updateUser: !this.state.updateUser })
     }
 
     addNewItem = async (newItem) => {
@@ -157,15 +158,6 @@ export default class User extends Component {
             )
         })
 
-        const editUserForm = (
-            <StyledEditUserForm>
-                <form onSubmit={this.handleUpdate}>
-                    Name:<input type='text' name='name' onChange={this.handleChange} value={this.state.user.name} />
-                    <input className='update' type='submit' value='Update' />
-                </form>
-            </StyledEditUserForm>
-        )
-
         return (
             <StyledUserPage>
                 <nav>
@@ -176,7 +168,7 @@ export default class User extends Component {
                 </nav>
 
                 <h1>{this.state.user.name}'s Bucket List</h1>
-                {this.state.updatedUser ? editUserForm : ''}
+                {this.state.updateUser ? <EditUserForm userId={this.props.match.params.userId} /> : ''}
 
                 <StyledEditUserForm>
                     <NewItemForm

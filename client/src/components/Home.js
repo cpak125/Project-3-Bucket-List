@@ -44,8 +44,8 @@ export default class Home extends Component {
     render() {
         return (
             <StyledHomePage>
-                <h1>Bucket ListR</h1>
-                <p>Welcome to Bucket ListR! This app allows users to create their own personal Bucket List. Users can also view other user's Bucket List. Click "Enter" to get started.</p>
+                <h1>Bucket Listr</h1>
+                <p>Welcome to Bucket Listr! This app allows users to create their own personal Bucket List. Users can also view other user's Bucket List. Click "Enter" to get started.</p>
                 <button><a href='/users'>Enter</a></button>
             </StyledHomePage>
         )
