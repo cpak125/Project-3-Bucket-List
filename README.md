@@ -1,4 +1,4 @@
-# Bucket ListR
+# Bucket Listr
 
 ## Overview
 For project #3, I created a bucket list app, named "Bucket Listr". This app allows users to create their own personal bucket list. Users can also view other user's bucket list.
