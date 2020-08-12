@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true })
 const connection = mongoose.connection
 connection.on('connected', () => {
   console.log('Mongoose Connected Successfully')
